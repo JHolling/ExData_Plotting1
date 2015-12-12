@@ -5,11 +5,15 @@
 # Then it plots using the basic plot() function in R. Lastly it outputs the completed 
 # plot to the working directory with the filename "Plot2.png"
 #
-#The above mentioned file  will need to be unzipped and placed in the root of your working directory or 
-#use the "setwd" to a set the desired location of these files. 
+#The above mentioned data file will need to be unzipped and placed in the root of your working directory or 
+#use the "setwd" function to a set the desired location to these files. 
+
+# To Run this script, highlight all the code and select the "Run" button
+# the upper left of this screen.
 
 fullwatts <- read.table("household_power_consumption.txt", header=T, sep=";", quote="\"")
 twodaywatts=subset(fullwatts,Date=="1/2/2007"|Date=="2/2/2007")
+twodaywatts<-twodaywatts[complete.cases(twodaywatts),] #cleans out any "NA" or converted "?"
 twodaywatts$Global_active_power<-as.numeric(as.character(twodaywatts$Global_active_power))
 twodaywatts$Date=as.Date(strptime(twodaywatts$Date,"%d/%m/%Y"))       #sets col to date format
 

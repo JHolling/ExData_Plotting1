@@ -2,15 +2,18 @@
 # of electrical usage data.
 #
 # The below code reads & subsets down the data set to just 2 days (2/1/2007 and 2/2/2007) of observations. 
-# Then it plots 3 variables onto one plots using the basic plot() function in R to match the 
-# Instructors plot. Lastly the completd plot is output to the working directory with the 
+# Then it plots 3 variables onto one plot using the basic plot() function in R to match the 
+# Instructors plot. Lastly the completed plot is output to the working directory with the 
 # filename "Plot3.png"
 #
-#The above mentioned file will need to be unzipped and placed in the root of your working directory or 
-#use the "setwd" to a set the desired location of the file. 
+# The above mentioned data file will need to be unzipped and placed in the root of your working directory or 
+# use the "setwd" function to a set the desired location to the file. 
+#
+# To run this script, highlight this code and select "Run" in the upper right corner of this page's banner.
 
 fullwatts <- read.table("household_power_consumption.txt", header=T, sep=";", quote="\"")
 twodaywatts=subset(fullwatts,Date=="1/2/2007"|Date=="2/2/2007")
+twodaywatts<-twodaywatts[complete.cases(twodaywatts),]       #cleans out any "NA" or converted "?"
 twodaywatts$Date=as.Date(strptime(twodaywatts$Date,"%d/%m/%Y"))     #sets col to date format
 twodaywatts$Sub_metering_3<-as.numeric(as.character(twodaywatts$Sub_metering_3))
 twodaywatts$Sub_metering_2<-as.numeric(as.character(twodaywatts$Sub_metering_2))
