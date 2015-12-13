@@ -1,8 +1,9 @@
 # This R script loads a data file called "household_power_consumption.txt" that contains several years
-# of electrical usage data.
+# of electrical usage data. The data file can be located at:
+# https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
 #
 # The below code reads & subsets down the data set to just 2 days (2/1/2007 and 2/2/2007) of observations. 
-# Then it plots using the basic plot (histogram) option in R to match the Instructors plot. 
+# Then it plots using the basic plot (histogram) option in R to match the reference plot. 
 # Lastly it outputs the completed plot to the working directory with the filename "Plot1.png"
 #
 # The above mentioned data file will need to be unzipped and placed in the root of your working directory or 
